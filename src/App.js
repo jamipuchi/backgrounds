@@ -33,10 +33,9 @@ const App = () => {
         setBgParameters={setBgParameters}
       />
       <Container>
-        <h1 style={{ marginTop: "25px" }}>Title</h1>
         <div
           style={{
-            marginTop: "25px",
+            marginTop: "50px",
             display: "flex",
             justifyContent: "space-between",
           }}
