@@ -1,9 +1,10 @@
 import ReactDOMServer from "react-dom/server";
 
-export default (title = "Title", subtitle = "Subtitle") => {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (title = "Title", subtitle = "Subtitle", color = "#ff6347") => {
   const backgroundContainer = document.getElementById("backgroundContainer");
 
-  const renderInBackground = (title, subtitle) => {
+  const renderInBackground = (title, subtitle, color) => {
     backgroundContainer.innerHTML = ReactDOMServer.renderToString(
       <div
         id="background"
@@ -13,7 +14,7 @@ export default (title = "Title", subtitle = "Subtitle") => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "tomato",
+          backgroundColor: color,
         }}
       >
         <div
@@ -41,7 +42,7 @@ export default (title = "Title", subtitle = "Subtitle") => {
     );
   };
 
-  renderInBackground(title, subtitle);
+  renderInBackground(title, subtitle, color);
 
   return [renderInBackground, () => {}];
 };

@@ -1,13 +1,14 @@
 import pizza from "./pizza";
 import SimpleText from "./SimpleText";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
     name: "Background 1",
     func: SimpleText,
     image:
       "https://speckyboy.com/wp-content/uploads/2019/03/free-minimal-design-font-typeface-06.jpg",
-    parameters: { title: "Title", subtitle: "Subtitle" },
+    parameters: { title: "Title", subtitle: "Subtitle", color: "#ff6347" },
   },
   {
     name: "Background 2",

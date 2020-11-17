@@ -35,35 +35,41 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{ padding: "20px"}}
+    >
       <div
         id="backgroundContainer"
-        style={{ width: "100%", height: "900px", backgroundColor: "black" }}
+        style={{
+          width: "100%",
+          height: "900px",
+
+          boxShadow:
+            "0 45px 100px rgba(14, 21, 47, 0.4), 0 16px 40px rgba(14, 21, 47, 0.4)",
+          borderRadius: "10px",
+          overflow: "hidden",
+        }}
       />
       <ParametersCard
         bgParameters={bgParameters}
         setBgParameters={setBgParameters}
       />
-      <Container>
-        <div
-          style={{
-            marginTop: "50px",
-            marginBottom: "50px",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          {BackgroundList.map((bg, i) => (
-            <a
-              key={bg.name}
-              onClick={() => selectBg(i)}
-              style={{ width: "32%" }}
-            >
-              <ParallaxCard text={bg.name} layers={[bg.image]} />
-            </a>
-          ))}
-        </div>
-      </Container>
+      <div
+        style={{
+          marginTop: "50px",
+          marginBottom: "50px",
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        {BackgroundList.map((bg, i) => (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a key={bg.name} onClick={() => selectBg(i)}>
+            <ParallaxCard text={bg.name} layers={[bg.image]} />
+          </a>
+        ))}
+      </div>
     </div>
   );
 };

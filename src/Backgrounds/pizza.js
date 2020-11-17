@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ReactDOMServer from "react-dom/server";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (
   parallaxMovement = 5,
   cameraStartingPosition = { x: 10, y: 5, z: 4 },
