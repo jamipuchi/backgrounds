@@ -152,6 +152,7 @@ export default (
 
   // animation rendering
   const clock = new THREE.Clock();
+  let requestAnimationFrameId = "";
   (function animate() {
     // animation with THREE.AnimationMixer.update(timedelta)
     objs.forEach(({ mixer }) => {
@@ -160,8 +161,19 @@ export default (
     pizzamovingTimer =
       pizzamovingTimer >= parallaxMovement ? 5 : pizzamovingTimer + 0.05;
     renderer.render(scene, camera);
-    requestAnimationFrame(animate);
+    requestAnimationFrameId = requestAnimationFrame(animate);
   })();
+
+  return [
+    (pM, cSP, gI) => {
+      parallaxMovement = pM;
+      cameraStartingPosition = cSP;
+      generateImage = gI;
+    },
+    () => {
+      cancelAnimationFrame(requestAnimationFrameId);
+    },
+  ];
 
   // Follows the mouse event
   function onMouseMove(event) {

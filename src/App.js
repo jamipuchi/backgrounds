@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import BackgroundList from "./Backgrounds/BackgroundList";
 import React, { useState, useEffect } from "react";
-import ParametersCard from "./ParametersCard";
+import ParametersCard from "./Components/ParametersCard";
 import ParallaxCard from "./Components/ParallaxCard";
 
 const App = () => {
@@ -11,16 +11,28 @@ const App = () => {
   const [bgParameters, setBgParameters] = useState(
     BackgroundList[selectedBg].parameters
   );
+  const [bgUpdateAndEnd, setBgUpdateAndEnd] = useState([() => {}, () => {}]);
 
   const selectBg = (i) => {
+    bgUpdateAndEnd[1]();
     setSelectedBg(i);
     setBgParameters(BackgroundList[i].parameters);
-    BackgroundList[i].func(...Object.values(BackgroundList[i].parameters));
+    setBgUpdateAndEnd(
+      BackgroundList[i].func(...Object.values(BackgroundList[i].parameters))
+    );
   };
 
   useEffect(() => {
-    BackgroundList[selectedBg].func(...Object.values(bgParameters));
+    if (bgUpdateAndEnd[0] != null) {
+      bgUpdateAndEnd[0](...Object.values(bgParameters));
+    } else {
+      BackgroundList[selectedBg].func(...Object.values(bgParameters));
+    }
   }, [bgParameters]);
+
+  useEffect(() => {
+    selectBg(selectedBg);
+  }, []);
 
   return (
     <div>

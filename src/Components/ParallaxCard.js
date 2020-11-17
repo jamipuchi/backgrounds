@@ -133,18 +133,6 @@ export default class ParallaxCard extends React.Component {
           className="parallax-card-container"
           style={{ ...this.state.container }}
         >
-          <h1
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: "10px",
-              zIndex: 999,
-              width: "100%",
-            }}
-          >
-            {this.props.text}
-          </h1>
-
           <div className="parallax-card-shadow" />
           <div
             className="parallax-card-shine"
