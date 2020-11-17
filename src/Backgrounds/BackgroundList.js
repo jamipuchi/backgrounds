@@ -6,7 +6,7 @@ export default [
     name: "",
     func: SimpleText,
     image:
-      "https://lh3.googleusercontent.com/proxy/uoFamBpteiAJ4W_spTCNjXGFKOyjx5JTEQD36W72rp7L4jO6an9QXvrtz7v_240okv7hnv-o4AQ_Lvnmpx9iXk0363u8ZSt-xsdugPJbXzfLnSXEA8O-q0DBjkF5aD2axvgyvUbH_MSg5Jd7RycEOlBi-KS0gBAHlFyxNMBiGhb0WUDhLMlmsLaZC0JgWepy6KiUJQQ99YwRPW0c6ag",
+      "https://speckyboy.com/wp-content/uploads/2019/03/free-minimal-design-font-typeface-06.jpg",
     parameters: { title: "Title", subtitle: "Subtitle" },
   },
   {

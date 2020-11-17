@@ -36,6 +36,7 @@ const App = () => {
         <div
           style={{
             marginTop: "50px",
+            marginBottom: "50px",
             display: "flex",
             justifyContent: "space-between",
           }}
