@@ -8,6 +8,10 @@ import Slider, { createSliderWithTooltip } from "rc-slider";
 import "./ParametersCard.sass";
 import { useState } from "react";
 import { ChromePicker } from "react-color";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import Popup from "reactjs-popup";
+import "./Modal.css";
+import HowToUseCard from "./HowToUseCard";
 
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 
@@ -133,13 +137,14 @@ const ParametersCard = (props) => {
       <div
         style={{
           position: "absolute",
-          top: "10px",
-          right: "10px",
-          width: "10px",
-          height: "10px",
+          top: "20px",
+          right: "27px",
+          zIndex: "10",
         }}
         onClick={() => setIsOpen(!isOpen)}
-      ></div>
+      >
+        {!isOpen ? <FiEye /> : <FiEyeOff />}
+      </div>
       <Card
         style={
           isOpen
@@ -185,6 +190,32 @@ const ParametersCard = (props) => {
             </div>
           </div>
         ))}
+        <button
+          className="download"
+          style={{
+            flexGrow: 1,
+            color: "black",
+            marginTop: "10px",
+          }}
+          type="primary"
+        >
+          Download Background
+        </button>
+        <Popup
+          trigger={
+            <button
+              className="download"
+              style={{ flexGrow: 1, color: "black", marginTop: "10px" }}
+              type="primary"
+            >
+              How to use
+            </button>
+          }
+          modal
+          nested
+        >
+          <HowToUseCard />
+        </Popup>
       </Card>
     </React.Fragment>
   );
